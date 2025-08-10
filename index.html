@@ -9,11 +9,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {font-family: 'Inter', sans-serif; margin:0; background:#0b0c10; color:#e8eaf0;}
-    header, footer {background:#121317; padding:1rem; text-align:center;}
+    body {
+      font-family: 'Inter', sans-serif;
+      margin:0;
+      color:#e8eaf0;
+      background: url('background.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+    header, footer {background:#121317cc; padding:1rem; text-align:center;}
     nav a {color:#a7adbe; margin:0 0.5rem; text-decoration:none;}
     nav a:hover {color:#66fcf1;}
-    main {padding:2rem; max-width:900px; margin:auto;}
+    main {padding:2rem; max-width:900px; margin:auto; background:rgba(11,12,16,0.7); border-radius:12px;}
     section {margin-bottom:3rem;}
     .btn {display:inline-block; padding:0.75rem 1.2rem; background:#66fcf1; color:#001313; border-radius:8px; text-decoration:none; font-weight:600;}
     .btn:hover {background:#45a29e; color:#fff;}
@@ -57,7 +63,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Lightweight link checker for subpages
     const links = Array.from(document.querySelectorAll('[data-check]'));
     Promise.allSettled(
       links.map(a => fetch(a.getAttribute('href'), {method:'HEAD', cache:'no-store'}))
